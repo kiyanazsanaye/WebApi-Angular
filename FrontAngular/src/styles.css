@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.example-sidenav-content .mat-toolbar-row, .mat-toolbar-single-row {
+    background-color: #262c4e;
+    color: cornsilk;
+}
+.example-container .mat-drawer{
+    background-color: #fafafa;
+    color: #262c4e !important;
+}
+.example-container .mat-list-base .mat-list-option {
+    color: #262c4e !important;
+}
+.mat-list-base .mat-list-item .mat-list-item-content-reverse, .mat-list-base .mat-list-option .mat-list-item-content-reverse{
+    padding: 0px 1px !important;
+}
+.example-sidenav .mat-list-base .mat-list-item .mat-list-text, .mat-list-base .mat-list-option .mat-list-text{
+    display: block;
+}
+.main-menu .mat-expansion-panel-header {
+    padding: 0 4px !important;
+}
+.main-menu .mat-expansion-panel-body{
+    padding: 0 !important;
+}
+.main-menu .mat-expansion-panel:not([class*=mat-elevation-z]){
+    box-shadow: none !important;
+}
+.main-menu .mat-expansion-panel-spacing {
+     margin: 0 !important; 
+}
+.main-menu .mat-list-base {
+    padding-top: 0px;
+}
+.login-container {
+    background-image: url(./assets/img/login.jpg);
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.custom-toolbar .mat-toolbar-single-row {
+    justify-content: space-between !important;
+}

@@ -1,0 +1,71 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" opened mode="side">
+    <div class="pic-menu">
+      <img src="assets/img/logo-vertical.svg" width="99%" height="200" alt="Logo">
+    </div>
+    <div class="main-menu">
+      <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header style="height: 48px !important;">
+            <mat-panel-title>
+              <mat-icon>dashboard</mat-icon> Dashboard
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+          <div class="sub-menus">
+            <mat-selection-list style="padding-top: 0;" [multiple]="false">
+              <mat-list-option routerLink="/dashboard">
+                <mat-icon>home</mat-icon> Home
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header style="height: 48px !important;">
+            <mat-panel-title>
+              <mat-icon>airplanemode_active</mat-icon> Aircraft
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="sub-menus">
+            <mat-selection-list [multiple]="false">
+              <mat-list-option routerLink="/aircraft">
+                <mat-icon>airplanemode_active</mat-icon> Aircraft
+              </mat-list-option>
+              <mat-list-option routerLink="/add">
+                <mat-icon>add</mat-icon> Add Aircraft
+              </mat-list-option>
+
+            </mat-selection-list>
+          </div>
+        </mat-expansion-panel>
+
+
+      </mat-accordion>
+    </div>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content custom-toolbar">
+    <mat-toolbar>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="this.drawer.toggle()" (click)="Mhd()">
+        <mat-icon *ngIf="!showFiller" aria-hidden="false" aria-label="Example home icon">menu_open</mat-icon>
+        <mat-icon *ngIf="showFiller" aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" style="float: right;">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+
+  </div>
+  <div class="panel-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>

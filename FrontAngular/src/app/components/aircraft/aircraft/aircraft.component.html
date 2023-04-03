@@ -1,0 +1,151 @@
+<mat-card>
+  <!--<form [formGroup]="AircraftForm" (ngSubmit)="Update()" #f="ngForm">
+
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <td>Name</td>
+          <td>
+            <input type="hidden" formControlName="id">
+            <input type="text" formControlName="modelName">
+            <div *ngIf="submitted && AircraftForm.controls.modelName.errors" class="text-danger">
+              <div *ngIf="AircraftForm.controls.modelName.errors.required">Name is required</div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Contact</td>
+          <td>
+            <input type="text" formControlName="serialNumber">
+            <div *ngIf="submitted && AircraftForm.controls.serialNumber.errors" class="text-danger">
+              <div *ngIf="AircraftForm.controls.serialNumber.errors.required">Contact is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>
+            <input type="text" formControlName="registrationNumber">
+            <div *ngIf="submitted && AircraftForm.controls.registrationNumber.errors" class="text-danger">
+              <div *ngIf="AircraftForm.controls.registrationNumber.errors.required">Email is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>
+            <input type="text" formControlName="registrationStatus">
+            <div *ngIf="submitted && AircraftForm.controls.registrationStatus.errors" class="text-danger">
+              <div *ngIf="AircraftForm.controls.registrationStatus.errors.required">Address is required</div>
+            </div>
+
+          </td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>
+            <input type="text" formControlName="registrationDate">
+            <div *ngIf="submitted && AircraftForm.controls.registrationDate.errors" class="text-danger">
+              <div *ngIf="AircraftForm.controls.registrationDate.errors.required">Address is required</div>
+            </div>
+
+          </td>
+        </tr>
+        <tr>
+
+          <td colspan="2">
+            <button type="submit" class="btn btn-primary">{{EventValue}}</button>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+  </form>-->
+
+  <form [formGroup]="AircraftForm" *ngIf="!isShowUpdateIf" class="IsUpdate" (ngSubmit)="Update()" #f="ngForm">
+
+    <div class="row">
+
+      <div fxLayout="row" style="width: 100%">
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field fxFlex="50" appearance="outline" style="width: 49%;margin-right: 3px;">
+          <mat-label>modelName</mat-label>
+          <input matInput formControlName="modelName" placeholder="modelName" name="modelName">
+          <div *ngIf="submitted && AircraftForm.controls.modelName.errors" class="text-danger">
+            <div *ngIf="AircraftForm.controls.modelName.errors.required">Name is required</div>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="50" style="width: 50%;">
+          <mat-label>serialNumber</mat-label>
+          <input formControlName="serialNumber" matInput placeholder="serialNumber" name="serialNumber">
+          <div *ngIf="submitted && AircraftForm.controls.serialNumber.errors" class="text-danger">
+            <div *ngIf="AircraftForm.controls.serialNumber.errors.required">Contact is required</div>
+          </div>
+        </mat-form-field>
+      </div>
+
+
+      <div fxLayout="row" style="width: 100%">
+        <mat-form-field fxFlex="50" appearance="outline" style="width: 49%;margin-right: 3px;">
+          <mat-label>registrationNumber</mat-label>
+          <input formControlName="registrationNumber" matInput placeholder="registrationNumber"
+            name="registrationNumber">
+          <div *ngIf="submitted && AircraftForm.controls.registrationNumber.errors" class="text-danger">
+            <div *ngIf="AircraftForm.controls.registrationNumber.errors.required">Email is required</div>
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="50" style="width: 50%;">
+          <mat-slide-toggle (change)="changeStatus($event)" formControlName="registrationStatus"
+            checked="{{model.registrationStatus}}">Registration
+            Status</mat-slide-toggle>
+          <textarea matInput hidden></textarea>
+          <div *ngIf="submitted && AircraftForm.controls.registrationStatus.errors" class="text-danger">
+            <div *ngIf="AircraftForm.controls.registrationStatus.errors.required">Address is required</div>
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" style="width: 100%">
+      </div>
+      <div fxLayout="row" style="text-align: center;">
+        <button mat-stroked-button color="success" style="margin-right: 3px;" type="submit">Save</button>
+        <button mat-stroked-button color="accent" (click)="resetFrom()" type="button">Cancel</button>
+      </div>
+    </div>
+
+  </form>
+
+  <div class="row">
+    <table class="table table-striped">
+      <tr>
+        <td>Id</td>
+        <td>ModelName</td>
+
+        <td>SerialNumber</td>
+        <td>RegistrationNumber</td>
+        <td>RegistrationStatus</td>
+        <td>RegistrationDate</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+
+      <tr *ngFor="let d of data">
+        <td>{{d.Id}}</td>
+        <td>{{d.ModelName}}</td>
+
+        <td>{{d.SerialNumber}}</td>
+        <td>{{d.RegistrationNumber}}</td>
+        <td>{{d.RegistrationStatus}}</td>
+        <td>{{d.RegistrationDate}}</td>
+        <td><a (click)="EditData(d)" class="btn btn-warning">Edit</a></td>
+        <td><a (click)="DeleteData(d.Id)" class="btn btn-danger">Delete</a></td>
+
+      </tr>
+    </table>
+  </div>
+</mat-card>

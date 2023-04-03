@@ -1,0 +1,7 @@
+Please first run StoredProcedure number 1 for create DB;
+Then, run StoredProcedure number 2 for creating tables;
+
+or:
+If you want you can just use my backup from db.
+
+Thanks.
